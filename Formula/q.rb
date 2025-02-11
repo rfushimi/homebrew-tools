@@ -6,13 +6,11 @@ class Q < Formula
   version "0.1.8"
   license "MIT"
 
-  depends_on "rust" => :build
-
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    bin.install "q"
   end
 
   test do
-    assert_match "q #{version "0.1.8"
+    assert_match "q #{version}", shell_output("#{bin}/q --version")
   end
 end
